@@ -1,0 +1,23 @@
+[user]
+	name = ADSmith-0
+	email = change me
+[push]
+	autoSetupRemote = true
+	default = current
+[pull]
+	rebase = false
+[core]
+	editor = vim
+	pager = less -x2
+[init]
+	defaultBranch = main
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[merge]
+	tool = nvimdiff
+[mergetool "nvimdiff"]
+	cmd = nvim -d -c '4wincmd w | wincmd J' \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"$MERGED\"
+[rerere]
+	enabled = true
