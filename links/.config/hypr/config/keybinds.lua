@@ -1,6 +1,4 @@
-local Apps = require("config.apps")
-
-print(constants)
+local Apps = require("config.Apps")
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
