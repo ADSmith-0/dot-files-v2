@@ -163,8 +163,11 @@ bindkey '^f' forward-word # shift + f | complete next word
 bindkey -s '^[p' 'ts;clear\n' # alt + p | Open project
 bindkey -s '^[.' 'cd ..;clear\n' # alt + . | up 1 directory
 
+newbash() { echo "#!/usr/bin/env bash" > "$1.sh" && chmod +x "$1.sh"; }
+
 # aliases
 alias "ts"="tmux-sessionizer"
+alias "new-bash"="newbash"
 alias "gss"="git status -s"
 alias "gs"="gss"
 alias "ga"="git add"
