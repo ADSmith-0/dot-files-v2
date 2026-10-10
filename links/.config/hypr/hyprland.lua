@@ -30,17 +30,6 @@ hl.monitor({
 })
 
 
----------------------
----- MY PROGRAMS ----
----------------------
-
--- Set programs that you use
-local terminal = "alacritty"
-local browser = "firefox"
-local fileManager = "nautilus"
-local menu = "hyprlauncher"
-
-
 -------------------
 ---- AUTOSTART ----
 -------------------
@@ -50,13 +39,12 @@ local menu = "hyprlauncher"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("hyprsunset")
   hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
   hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3"')
-  hl.exec_cmd(terminal)
   hl.exec_cmd("nm-applet")
   hl.exec_cmd("waybar & hyprpaper & firefox")
-  hl.exec_cmd("hyprsunset && hyprsunseti temperature 2300")
 end)
 
 
@@ -68,7 +56,6 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
 
 -----------------------
 ----- PERMISSIONS -----
