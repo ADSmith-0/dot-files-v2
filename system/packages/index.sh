@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 ./audio.sh
 ./fd.sh
+./fonts.sh
 ./fzf.sh
 ./git.sh
 ./hyprland.sh
