@@ -1,6 +1,6 @@
 [user]
 	name = ADSmith-0
-	email = change me
+	email = <Change me>
 [push]
 	autoSetupRemote = true
 	default = current
