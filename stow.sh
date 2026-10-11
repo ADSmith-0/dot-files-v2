@@ -8,8 +8,8 @@ if [[ "$1" == "system" ]]; then
 fi
 
 if [[ "$1" == "adams" || "$1" == "adams-work" ]]; then
-  cd profiles/links
-  stow -t /home/"$1" "$1"
+  cd profiles/"$1"
+  stow -t /home/"$1" links
   exit 0
 fi
 
