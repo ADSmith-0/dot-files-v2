@@ -7,5 +7,8 @@ echo hyprsunset
 # Task bar
 echo waybar
 
+# Notification daemon
+echo swaync
+
 # Popup that asks for password to authenticate
 echo hyprpolkitagent
