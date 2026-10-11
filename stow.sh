@@ -3,7 +3,7 @@ source ./bash-helpers.sh
 
 if [[ "$1" == "system" ]]; then
   cd system
-  stow -t / links
+  sudo stow -t / links
   exit 0
 fi
 
