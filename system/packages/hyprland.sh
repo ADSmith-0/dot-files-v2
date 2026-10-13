@@ -7,6 +7,9 @@ echo hyprsunset
 # Task bar
 echo waybar
 
+# File manager
+echo nautilus
+
 # Notification daemon
 echo swaync
 
