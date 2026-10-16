@@ -9,9 +9,10 @@
 --
 hl.on("hyprland.start", function ()
   hl.exec_cmd("hyprsunset")
+  hl.exec_cmd("hyprlauncher -d")
   hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
   hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3"')
   hl.exec_cmd('systemctl --user start hyprpolkitagent')
   hl.exec_cmd("nm-applet")
-  hl.exec_cmd("waybar & hyprpaper & firefox")
+  hl.exec_cmd("waybar & hyprpaper")
 end)
