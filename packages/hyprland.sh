@@ -4,6 +4,9 @@ echo hyprland
 # Blue light filter
 echo hyprsunset
 
+# Launcher
+echo hyprlauncher
+
 # Task bar
 echo waybar
 
