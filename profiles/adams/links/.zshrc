@@ -146,7 +146,7 @@ export PATH=$PATH:$HOME/.local/bin
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777"
 
-export FZF_DEFAULT_COMMAND="fdfind --type file --follow --hidden --exclude .git --color=always"
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --color=always"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--ansi
   --style=minimal
