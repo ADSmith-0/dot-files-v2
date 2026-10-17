@@ -37,8 +37,8 @@ require("config.on_start")
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("XCURSOR_SIZE", "22")
-hl.env("HYPRCURSOR_SIZE", "22")
+hl.env("XCURSOR_SIZE", "20")
+hl.env("HYPRCURSOR_SIZE", "20")
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 
 -----------------------
