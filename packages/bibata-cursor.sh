@@ -1,21 +1,15 @@
 #!/usr/bin/env bash
+source ../bash-helpers.sh
 
-curl -LO https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/v1.1/hypr_Bibata-Modern-Amber.tar.gz
-curl -LO https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/v1.1/hypr_Bibata-Modern-Classic.tar.gz
-curl -LO https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/v1.1/hypr_Bibata-Modern-Ice.tar.gz
+if [[ "$1" -ne "Amber" || "$1" -ne "Classic" || "$1" -ne "Ice" ]]; then
+  echo -e "${RED}Err:${RESET} missing style 'Amber', 'Classic' or 'Ice'" >&2
+  exit 1
+fi
 
-AMBER_DIR=/dot-files/profiles/$USER/links/.local/share/icons/bibata-amber-hyprcursor
-CLASSIC_DIR=/dot-files/profiles/$USER/links/.local/share/icons/bibata-classic-hyprcursor
-ICE_DIR=/dot-files/profiles/$USER/links/.local/share/icons/bibata-ice-hyprcursor
-
-mkdir -p $AMBER_DIR
-mkdir -p $CLASSIC_DIR
-mkdir -p $ICE_DIR
-
-tar -zxf hypr_Bibata-Modern-Amber.tar.gz -C $AMBER_DIR
-tar -zxf hypr_Bibata-Modern-Classic.tar.gz -C $CLASSIC_DIR
-tar -zxf hypr_Bibata-Modern-Ice.tar.gz -C $ICE_DIR
-
-rm hypr_Bibata-Modern-Amber.tar.gz
-rm hypr_Bibata-Modern-Classic.tar.gz 
-rm hypr_Bibata-Modern-Ice.tar.gz
+curl -LO https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/v1.1/hypr_Bibata-Modern-$1.tar.gz
+DIR=/dot-files/profiles/$USER/links/.local/share/icons/bibata-${1,,}-hyprcursor
+mkdir -p $DIR
+tar -zxf hypr_Bibata-Modern-$1.tar.gz -C $DIR
+rm hypr_Bibata-Modern-$1.tar.gz
+echo ""
+cat "$DIR/manifest.hl"
