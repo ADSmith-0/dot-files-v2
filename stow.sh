@@ -7,9 +7,9 @@ if [[ "$1" == "system" ]]; then
   exit 0
 fi
 
-if [[ "$1" == "adams" || "$1" == "adams-work" ]]; then
-  cd profiles/"$1"
-  stow --adopt -t /home/"$1" links
+if [[ "$1" == "user" ]]; then
+  cd profiles/"$USER"
+  stow --adopt -t /home/"$USER" links
   exit 0
 fi
 
