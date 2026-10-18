@@ -7,7 +7,7 @@
 [pull]
 	rebase = false
 [core]
-	editor = vim
+	editor = nvim
 	pager = less -x2
 [init]
 	defaultBranch = main
