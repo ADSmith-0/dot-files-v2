@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+	selected=$1
+else
+	selected=$({
+		for dir in $(fd . ~/Dev -E testing -E learning -d 1 -t d); do
+			printf "%s\t%s\n" "$(basename "$dir")" "$dir"
+		done
+		for dir in $(fd . ~/Dev/testing -d 1 -t d); do
+			printf "%s\t%s\n" "testing/$(basename "$dir")" "$dir"
+		done
+		for dir in $(fd . ~/Dev/learning --full-path -d 1 -t d); do
+			printf "%s\t%s\n" "learning/$(basename "$dir")" "$dir"
+		done
+		printf "%s\t%s\n" "dot-files" "/dot-files"
+		printf "%s\t%s\n" "notes" "$HOME/Documents/notes"
+	} | fzf --tac --delimiter $'\t' --with-nth 1 --prompt 'Project > ' | cut -f2)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+	if [[ "$selected" == *\/comhairle ]]; then
+		tmux new-session -d -s $selected_name -c "$selected/ui" -n "UI"
+		sleep 0.5
+		tmux send-keys -t $selected_name "nvim" C-m
+
+		tmux new-window -t $selected_name -c "$selected/api" -n "API"
+		sleep 0.5
+		tmux send-keys -t $selected_name "nix develop -c nvim" C-m
+
+		tmux new-window -t $selected_name -c $selected -n "Runner"
+		sleep 0.5
+		tmux send-keys -t $selected_name "cd ui/packages/comhairle && pn dev" C-m
+		tmux split-window -h -c $selected -t $selected_name
+		sleep 0.5
+		tmux send-keys -t $selected_name "nix develop -c just start-redis && nix develop -c just api-dev" C-m
+		tmux split-window -v -c $selected -t $selected_name
+		sleep 0.5
+		tmux send-keys -t $selected_name "nix develop -c just pg" C-m
+
+		tmux new-window -t $selected_name -c $selected -n "CLI"
+		sleep 0.5
+		tmux select-window -t "$selected_name:UI"
+	else
+		tmux new-session -d -s $selected_name -c $selected -n "Editor"
+		sleep 0.5
+		tmux send-keys -t $selected_name "nvim" C-m
+
+		tmux new-window -t $selected_name -c $selected -n "Runner"
+		tmux new-window -t $selected_name -c $selected -n "CLI"
+		tmux select-window -t "$selected_name:Editor"
+	fi
+fi
+
+if [[ ! -z $TMUX ]]; then
+  tmux switch-client -t $selected_name
+else
+  tmux attach -t $selected_name
+fi
