@@ -8,7 +8,7 @@ elif [[ $raw_url =~ "git@" ]]; then
 fi
 
 if [[ ! -z $url ]]; then
-  open $url
+  xdg-open $url &
 else
   echo "$raw_url, conversion not supported"
 fi
