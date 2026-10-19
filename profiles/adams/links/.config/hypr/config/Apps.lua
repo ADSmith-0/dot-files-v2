@@ -1,6 +1,6 @@
 return {
   terminal = "alacritty",
-  browser = "librewolf",
+  browser = "firefox",
   fileManager = "nautilus",
   menu = "hyprlauncher"
 }
