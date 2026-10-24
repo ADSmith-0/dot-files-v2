@@ -1,5 +1,5 @@
 * {
-	font-size: 13px;
+	font-size: 12px;
 	font-family: "GoogleSansCode Nerd Font"
 }
 
@@ -7,10 +7,14 @@
 	margin-left: 20px;
 }
 
+.modules-center * {
+	margin: 0 7px;
+}
+
 .modules-right {
 	margin-right: 20px;
 }
+
 .modules-right * {
-	margin:	0 7px;
-	font-size: 13px;
+	margin: 0 7px;
 }
