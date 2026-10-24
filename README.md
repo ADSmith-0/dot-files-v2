@@ -1,11 +1,11 @@
 # Dot files config
 ## Stack
-- Ly
-- Arch
-- Hyprland (+ ecosystem)
-- Waybar
-- Alacritty
-- Neovim
+- [Ly](https://github.com/fairyglade/ly)
+- [Arch](https://wiki.archlinux.org/title/Main_page)
+- [Hyprland](https://wiki.hypr.land/) (+ [ecosystem](https://wiki.hypr.land/hypr-ecosystem/))
+- [Waybar](https://github.com/Alexays/Waybar)
+- [Alacritty](https://alacritty.org/)
+- [Neovim](https://neovim.io/)
 
 ## TODO
 - Notifications
