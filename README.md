@@ -12,3 +12,5 @@
 - Idle timer
 - Styling
 - Finish up fonts
+- Workspaces
+- Edit keybindings for hyprland

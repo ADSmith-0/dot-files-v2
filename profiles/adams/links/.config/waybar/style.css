@@ -1,5 +1,16 @@
 * {
-	font-size: 12px;
-	margin: 0 6px;
+	font-size: 13px;
 	font-family: "GoogleSansCode Nerd Font"
+}
+
+.modules-left {
+	margin-left: 20px;
+}
+
+.modules-right {
+	margin-right: 20px;
+}
+.modules-right * {
+	margin:	0 7px;
+	font-size: 13px;
 }
