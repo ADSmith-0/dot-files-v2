@@ -140,7 +140,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 
 # fzf keybinds
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777"
 
