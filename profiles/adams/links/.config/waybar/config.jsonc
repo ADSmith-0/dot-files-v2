@@ -1,7 +1,7 @@
 {
   "layer": "top",
 	"position": "top",
-	"height": 34,
+	"height": 38,
 	"reload_style_on_change": true,
   "modules-left": ["hyprland/window"],
   "modules-center": ["hyprland/workspaces", "clock"],
@@ -10,7 +10,23 @@
 		"max-length": 25,
 		"format": "{}",
 		"icon": true,
-		"icon-size": 20,
+		"icon-size": 18,
+	},
+	"hyprland/workspaces": {
+		"format": "<span size='x-large'>{icon}</span>",
+		"format-icons": {
+			// "1": "󰀫",
+			// "2": "󰂡",
+			// "3": "󰏿",
+			// "4": "󰏉",
+			"1": "󰪀",
+			"2": "󰪁",
+			"3": "󰪈",
+			"4": "󰪃",
+		},
+		"persistent-workspaces": {
+			"*": 4, // 4 workspaces by default on every monitor
+		}
 	},
 	"clock": {
 		"format": "<span size='large'></span> {:%H:%M   <span size='large'>󰃭</span> %d %b}",
