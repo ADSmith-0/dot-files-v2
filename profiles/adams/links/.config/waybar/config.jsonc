@@ -15,18 +15,20 @@
 	"hyprland/workspaces": {
 		"format": "<span size='x-large'>{icon}</span>",
 		"format-icons": {
-			// "1": "󰀫",
-			// "2": "󰂡",
-			// "3": "󰏿",
-			// "4": "󰏉",
-			"1": "󰪀",
-			"2": "󰪁",
-			"3": "󰪈",
-			"4": "󰪃",
+			"1": "󰀫",
+			"2": "󰂡",
+			"3": "󰏿",
+			"4": "󰏉",
+			// "1": "󰪀",
+			// "2": "󰪁",
+			// "3": "󰪈",
+			// "4": "󰪃",
 		},
+		"enable-bar-scroll": true,
 		"persistent-workspaces": {
 			"*": 4, // 4 workspaces by default on every monitor
-		}
+		},
+		"persistent-only": true,
 	},
 	"clock": {
 		"format": "<span size='large'></span> {:%H:%M   <span size='large'>󰃭</span> %d %b}",
