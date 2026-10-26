@@ -8,7 +8,7 @@ echo hyprsunset
 echo hyprlauncher
 
 # Task bar
-echo waybar
+$(./waybar.sh)
 
 # File manager
 echo nautilus
