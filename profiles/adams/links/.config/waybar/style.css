@@ -33,15 +33,15 @@ window#waybar {
 }
 
 #workspaces button {
-	transition: all 200ms ease-in-out;
-	margin-left: 5px;
+	transition: all 150ms ease-in-out;
+	/* margin-left: 5px; */
 	margin-top: 5px;
 	border-radius: 0px;
 	font-weight: 800;
 	border: 0;
 	background-color: transparent;
 	border-bottom: 2px solid transparent;
-	color: #c5c5c5;
+	color: #b0b0b0;
 }
 
 #workspaces button:hover {
@@ -58,21 +58,21 @@ window#waybar {
 }
 
 #workspaces button.ws-2:hover {
-	border-color: #ffcc00;
+	border-color: #ff7700;
 }
 
 #workspaces button.ws-2.active {
-	color: #ffcc00;
-	border-color: #ffcc00;
+	color: #ff7700;
+	border-color: #ff7700;
 }
 
 #workspaces button.ws-3:hover {
-	border-color: #ff7700;
+	border-color: #ffcc00;
 }
 
 #workspaces button.ws-3.active {
-	color: #ff7700;
-	border-color: #ff7700;
+	color: #ffcc00;
+	border-color: #ffcc00;
 }
 
 #workspaces button.ws-4:hover {
