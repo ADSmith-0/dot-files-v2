@@ -2,7 +2,9 @@ require("telescope").setup({
 	defaults = {
 		color_devicons = true,
 		sorting_strategy = "ascending",
-		path_display = { truncate = 10, shorten = 8 },
+		path_display = {
+			"filename_first"
+		},
 		layout_strategy = "horizontal",
 		prompt_prefix = " 🔍 ",
 		selection_caret = "▋ ",
@@ -31,7 +33,7 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>f", function()
 	builtin.fd({
 		previewer = false,
-		layout_config = { height = 0.75, width = 0.65 },
+		hidden = true,
 	})
 end, { desc = "Find file" })
 vim.keymap.set("n", "<leader>w", builtin.live_grep, { desc = "Find word" })
