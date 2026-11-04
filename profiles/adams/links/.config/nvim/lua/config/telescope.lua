@@ -55,7 +55,6 @@ vim.keymap.set("v", "<leader>*", builtin.grep_string, { desc = "Find selection i
 vim.keymap.set("n", "<leader><leader>", function()
 	builtin.buffers({
 		previewer = false,
-		layout_config = { height = 0.75, width = 0.65 },
 	})
 end, { desc = "Search open buffers" })
 vim.keymap.set("n", "<leader>;", builtin.resume, { desc = "Open last search" })
