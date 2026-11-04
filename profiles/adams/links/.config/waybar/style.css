@@ -4,8 +4,7 @@
 }
 
 window#waybar {
-	border-radius: 500px;
-	background: rgba(20, 20, 20, 1);
+	background: rgba(20, 20, 20, 0.8);
 }
 
 .modules-left {
