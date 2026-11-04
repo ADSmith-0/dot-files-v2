@@ -24,13 +24,68 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
+local function layout_bind(bind_table)
+	return function ()
+		local workspace = hl.get_active_special_workspace() or
+											hl.get_active_workspace()
+
+		if not workspace then
+			return
+		end
+
+		local layout = workspace.tiled_layout
+
+		if bind_table[layout] then
+			hl.dispatch(bind_table[layout])
+		end
+	end
+end
+
+hl.bind(mainMod .. " + TAB",  layout_bind({
+	dwindle = hl.dsp.layout("swapsplit"),
+	monocle = hl.dsp.layout("cyclenext"),
+}))
+hl.bind(mainMod .. " + SHIFT + TAB",  layout_bind({
+	dwindle = hl.dsp.layout("togglesplit"),
+	monocle = hl.dsp.layout("cycleprev"),
+}))
+
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+	local key = i % 10 -- 10 maps to key 0
+	hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+	hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
+
+
+hl.bind(mainMod .. " + G", function ()
+	local layouts   = {"dwindle", "monocle" }
+	local workspace = hl.get_active_workspace()
+	if hl.get_active_special_workspace() then
+		workspace = hl.get_active_special_workspace()
+	end
+
+	local next_layout = "dwindle"
+
+	if not workspace then
+		return
+	end
+
+	for i = 1, #layouts do
+		if layouts[i] == workspace.tiled_layout then
+			local next_layout_idx = (i % #layouts) + 1
+			next_layout = layouts[next_layout_idx]
+			break
+		end
+	end
+
+	if workspace.special then
+		hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
+	else
+		hl.workspace_rule({ workspace = "name:" .. tostring(workspace.name), layout = next_layout })
+	end
+end)
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
