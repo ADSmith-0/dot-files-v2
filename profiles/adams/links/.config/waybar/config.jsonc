@@ -1,7 +1,7 @@
 {
   "layer": "top",
 	"position": "top",
-	"height": 40,
+	"height": 45,
 	"reload_style_on_change": true,
   "modules-left": ["wlr/taskbar", "hyprland/window"],
   "modules-center": ["hyprland/workspaces", "clock"],
@@ -47,12 +47,12 @@
 	},
 	"memory": {
 		"interval": 60,
-		"format": "{}%<span size='medium'></span>",
+		"format": "{}% <span size='medium'></span>",
 		"tooltip-format": "{used:0.1f}G/{total:0.1f}G <span size='medium'></span>"
 	},
 	"cpu": {
 		"interval": 60,
-		"format": "{usage}%<span size='medium'></span>"
+		"format": "{usage}% <span size='medium'></span>"
 	},
 	"pulseaudio": {
 		"format": "<span size='large'>{icon}</span>",
@@ -74,10 +74,19 @@
 		"format-disconnected": "󰤫"
 	},
   "battery": {
-    "format": "{capacity}%<span size='large'>{icon}</span>",
+    "format": "<span size='x-large'>{icon}</span>",
 		"format-icons": {
 			"default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
 			"charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+		},
+		"tooltip-format": "Capacity: {capacity}%\n{timeTo}",
+		"states": {
+			"below5": 5,
+			"below20": 20,
+			"below40": 40,
+			"below60": 60,
+			"below80": 80,
+			"above80": 100,
 		}
   },
 }

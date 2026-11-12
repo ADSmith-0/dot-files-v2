@@ -24,9 +24,10 @@ window#waybar {
 }
 
 .modules-right * {
-	margin: 0 7px;
+	margin: 0 10px;
 }
 
+/* Workspaces */
 #workspaces {
 	font-size: 20px;
 }
@@ -81,4 +82,24 @@ window#waybar {
 #workspaces button.ws-4.active {
 	color: #55ffff;
 	border-color: #55ffff;
+}
+
+/* Battery */
+#battery.below5 {
+	color: #c62c13;
+}
+#battery.below20 {
+	color: #c95900;
+}
+#battery.below40 {
+	color: #c37e00;
+}
+#battery.below60 {
+	color: #ba9e00;
+}
+#battery.below80 {
+	color: #a0c000;
+}
+#battery.above80 {
+	color: #4ae442;
 }
