@@ -4,8 +4,8 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(Apps.terminal))
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(Apps.fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
@@ -23,6 +23,18 @@ hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+-- Move windows with mainMod + shift + arrow keys
+hl.bind(mainMod .. " + SHIFT + H",  hl.dsp.window.move({ workspace = "-1" }))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ workspace = "+1" }))
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ workspace = "-1" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ workspace = "+1" }))
+
+-- Move between workspaces
+hl.bind(mainMod .. " + CTRL + right", hl.dsp.focus({ workspace = "+1" }))
+hl.bind(mainMod .. " + CTRL + left",   hl.dsp.focus({ workspace = "-1" }))
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.focus({ workspace = "+1" }))
+hl.bind(mainMod .. " + CTRL + H",   hl.dsp.focus({ workspace = "-1" }))
 
 local function layout_bind(bind_table)
 	return function ()
@@ -90,11 +102,6 @@ end)
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-
-hl.bind(mainMod .. " + CTRL + right", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + CTRL + left",   hl.dsp.focus({ workspace = "-1" }))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + CTRL + H",   hl.dsp.focus({ workspace = "-1" }))
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "-1" }))
