@@ -4,11 +4,16 @@
 }
 
 window#waybar {
-	background: rgba(20, 20, 20, 0.8);
+	background: rgba(27, 20, 19, 0.95);
 }
 
 .modules-left {
 	margin-left: 20px;
+}
+
+/* Current window */
+#window {
+	margin-left: 40px;
 }
 
 .modules-center {

@@ -5,7 +5,7 @@
 	"reload_style_on_change": true,
   "modules-left": ["wlr/taskbar", "hyprland/window"],
   "modules-center": ["hyprland/workspaces", "clock"],
-  "modules-right": ["memory", "cpu", "bluetooth", "pulseaudio", "network", "battery", "custom/pacman"],
+  "modules-right": ["memory", "cpu", "bluetooth", "pulseaudio", "network", "battery", "custom/pacman", "custom/power"],
 	"wlr/taskbar": {
 		"format": "{icon}",
 		"icon-size": 18,
@@ -97,5 +97,17 @@
 		"exec-if": "exit 0",                  // always run; consider advanced run conditions
 		"on-click": "termite -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar", // update system
 		"signal": 8
+	},
+	"custom/power": {
+		"format" : "⏻ ",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "~/.config/waybar/power_menu.xml",
+		"menu-actions": {
+			"shutdown": "shutdown",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate",
+		},
 	}
 }
