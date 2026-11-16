@@ -4,16 +4,36 @@
 }
 
 window#waybar {
-	background: rgba(27, 20, 19, 0.95);
+	background: rgb(25, 20, 19);
 }
 
-.modules-left {
-	margin-left: 20px;
+/* .modules-left { */
+/* 	margin-left: 20px; */
+/* } */
+
+#taskbar {
+	border-right: 2px solid rgba(59, 57, 57, 0.95);
+	padding: 0 5px;
+}
+
+#taskbar button {
+	padding: 0 12px;
+	border-radius: 0;
+	border-width: 0;
+	border-top: 2px solid transparent;
+}
+
+#taskbar button:hover {
+	background: rgba(17, 12, 10, 0.8);
+}
+
+#taskbar button.active {
+	border-color: #e2e2e2;
 }
 
 /* Current window */
 #window {
-	margin-left: 40px;
+	margin-left: 20px;
 }
 
 .modules-center {
@@ -35,6 +55,8 @@ window#waybar {
 /* Workspaces */
 #workspaces {
 	font-size: 20px;
+	padding: 0 5px;
+	border-right: 2px solid rgba(59, 57, 57, 0.95);
 }
 
 #workspaces button {
@@ -93,18 +115,23 @@ window#waybar {
 #battery.below5 {
 	color: #c62c13;
 }
+
 #battery.below20 {
 	color: #c95900;
 }
+
 #battery.below40 {
 	color: #c37e00;
 }
+
 #battery.below60 {
 	color: #ba9e00;
 }
+
 #battery.below80 {
 	color: #a0c000;
 }
+
 #battery.above80 {
 	color: #4ae442;
 }
