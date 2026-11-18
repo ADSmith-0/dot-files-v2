@@ -12,7 +12,6 @@ window#waybar {
 /* } */
 
 #taskbar {
-	border-right: 2px solid rgba(59, 57, 57, 0.95);
 	padding: 0 5px;
 }
 
@@ -28,7 +27,7 @@ window#waybar {
 }
 
 #taskbar button.active {
-	border-color: #e2e2e2;
+	border-color: #a9a9a9;
 }
 
 /* Current window */

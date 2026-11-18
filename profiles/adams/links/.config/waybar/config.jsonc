@@ -3,7 +3,7 @@
 	"position": "top",
 	"height": 45,
 	"reload_style_on_change": true,
-  "modules-left": ["hyprland/workspaces", "wlr/taskbar", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
   "modules-center": ["clock"],
   "modules-right": ["memory", "cpu", "bluetooth", "pulseaudio", "network", "battery", "custom/pacman", "custom/power"],
 	"wlr/taskbar": {
@@ -13,15 +13,7 @@
 		"tooltip-format": "{title}",
 		"on-click": "activate",
 		"on-click-middle": "close",
-		"squash-list": [
-			"*"
-		]
-	},
-	"hyprland/window": {
-		"max-length": 25,
-		"format": "{}",
-		"icon": true,
-		"icon-size": 18,
+		"active-first": true,
 	},
 	"hyprland/workspaces": {
 		"format": "<span size='x-large'>{icon}</span>",
